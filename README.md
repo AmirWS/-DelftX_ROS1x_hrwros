@@ -3,6 +3,10 @@
 
 Welcome to the GitHub repository for the **Hello (Real) World with ROS – Robot Operating System** course provided by DelftX on edX. This README will provide you with an overview of the course content, the software environment components, and the purpose of the course.
 
+## Course Link
+
+https://www.edx.org/learn/robotics/delft-university-of-technology-hello-real-world-with-ros-robot-operating-system
+
 ## Course Overview
 
 This repository contains resources related to the ROS1x course offered by DelftX on edX. The course introduces you to various aspects of Robot Operating System (ROS) and equips you with the skills necessary to work with ROS in real-world applications.
