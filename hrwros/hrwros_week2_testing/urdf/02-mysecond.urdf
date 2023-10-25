@@ -1,0 +1,49 @@
+<robot name="multipleshapes">
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <cylinder length="0.6" radius="0.2"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!--link name="axis" -->
+  <link name="axis"/>
+
+  <link name="leg">
+    <visual>
+      <origin rpy="0 -1.57 0"/>
+      <geometry>
+        <box size="0.6 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="axis_joint_wbase" type="revolute">
+    <axis xyz="-1 0 0"/>
+    <limit effort="1000.0" lower="0.0" upper="0.548" velocity="0.5"/>
+    <parent link="base_link"/>
+    <child link="axis"/>
+    <origin xyz="0 0 0.3"/>
+  </joint>
+
+   <joint name="axis_joint_wleg" type="fixed">
+    <parent link="axis"/>
+    <child link="leg"/>
+    <origin xyz="0 0 0.3" rpy="0 0 0"/>
+    <!-- rpy rotate around itself / xyz translate to relative frame -->
+  </joint >
+
+</robot>
+<!-- 
+  to run:
+  cd /hrwros_ws/src/hrwros/hrwros_week2_testing
+  roslaunch urdf_tutorial display.launch model:=urdf/02-mysecond.urdf
+     - xyz in link itself: COG shifting
+     - xyz in joint: Relative translation between parent and child
+     - rpy in link: rotation around itself but keeping same axis direction
+     - rpy in joint: rotaion around itself but changing axis of link
+
+
+                                                    -->

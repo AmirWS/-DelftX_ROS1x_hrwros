@@ -1,0 +1,165 @@
+<robot name="multipleshapes">
+
+<link name="base_link"/>
+
+  <link name="l1">
+    <visual>
+      <origin xyz="0 0 0.3"/>
+      <geometry>
+        <cylinder length="0.6" radius="0.2"/>
+      </geometry>
+      <color rgba="0 0 1 1"/>
+    </visual>
+  </link>
+
+  <!--link name="axis" -->
+  <link name="l2axis"/>
+
+
+  <link name="l2">
+    <visual>
+      <origin xyz="0 0 0.3"/>
+      <geometry>
+        <box size="0.1 0.1 0.6"/>
+      </geometry>
+      <color rgba="0 1 0 1"/>
+    </visual>
+  </link>
+
+
+  <link name="l3axis"/>
+
+    <link name="l3">
+    <visual>
+      <origin xyz="0 0 0.3"/>
+      <geometry>
+        <box size="0.1 0.1 0.6"/>
+      </geometry>
+      <color rgba="0 1 1 1"/>
+    </visual>
+  </link>
+
+  <link name="l4axis"/>
+
+    <link name="l4">
+    <visual>
+      <origin xyz="0 0 0.3"/>
+      <geometry>
+        <box size="0.1 0.1 0.6"/>
+      </geometry>
+      <color rgba="1 0 0 1"/>
+    </visual>
+  </link>
+    <link name="l5axis"/>
+
+    <link name="l5">
+    <visual>
+      <origin xyz="0 0 0.3"/>
+      <geometry>
+        <box size="0.1 0.1 0.6"/>
+      </geometry>
+      <color rgba="1 0 1 1"/>
+    </visual>
+  </link>
+    <link name="l6axis"/>
+
+    <link name="l6">
+    <visual>
+      <origin xyz="0 0 0.3"/>
+      <geometry>
+        <box size="0.1 0.1 0.6"/>
+      </geometry>
+      <color rgba="1 1 0 1"/>
+    </visual>
+  </link>
+
+  <!--                                                           -->
+
+<joint name="base_link_l1" type="revolute">
+  <axis xyz="0 0 1"/>
+  <limit effort="1000.0" lower="0.0" upper="0.548" velocity="0.5"/>
+  <parent link="base_link"/>
+  <child link="l1"/>
+</joint>
+
+  <joint name="l1_l2axis" type="fixed">
+    <parent link="l1"/>
+    <child link="l2axis"/>
+    <origin xyz="0 0 0.6" rpy="0 0 0"/>
+  </joint >
+
+ <joint name="l2axis_l2" type="revolute">
+  <axis xyz="1 0 0"/>
+  <limit effort="1000.0" lower="0.0" upper="0.548" velocity="0.5"/>
+  <parent link="l2axis"/>
+  <child link="l2"/>
+</joint>
+
+  <joint name="l2_l3axis" type="fixed">
+    <parent link="l2"/>
+    <child link="l3axis"/>
+    <origin xyz="0 0 0.6" rpy="0 0 0"/>
+  </joint >
+
+  <joint name="l3axis_l3" type="revolute">
+  <axis xyz="1 0 0"/>
+  <limit effort="1000.0" lower="0.0" upper="0.548" velocity="0.5"/>
+  <parent link="l3axis"/>
+  <child link="l3"/>
+</joint>
+
+  <joint name="l3_l4axis" type="fixed">
+    <parent link="l3"/>
+    <child link="l4axis"/>
+    <origin xyz="0 0 0.6" rpy="0 0 0"/>
+  </joint >
+
+  <joint name="l4axis_l4" type="revolute">
+  <axis xyz="0 0 1"/>
+  <limit effort="1000.0" lower="0.0" upper="0.548" velocity="0.5"/>
+  <parent link="l4axis"/>
+  <child link="l4"/>
+</joint>
+
+  <joint name="l4_l5axis" type="fixed">
+    <parent link="l4"/>
+    <child link="l5axis"/>
+    <origin xyz="0 0 0.6" rpy="0 0 0"/>
+  </joint >
+
+<joint name="l5axis_l5" type="revolute">
+  <axis xyz="1 0 0"/>
+  <limit effort="1000.0" lower="0.0" upper="0.548" velocity="0.5"/>
+  <parent link="l5axis"/>
+  <child link="l5"/>
+</joint>
+
+  <joint name="l5_l6axis" type="fixed">
+    <parent link="l5"/>
+    <child link="l6axis"/>
+    <origin xyz="0 0 0.6" rpy="0 0 0"/>
+  </joint >
+
+  <joint name="l6axis_l6" type="revolute">
+  <axis xyz="0 0 1"/>
+  <limit effort="1000.0" lower="0.0" upper="0.548" velocity="0.5"/>
+  <parent link="l6axis"/>
+  <child link="l6"/>
+</joint>
+
+</robot>
+<!-- 
+  to run:
+  cd /hrwros_ws/src/hrwros/hrwros_week2_testing
+  roslaunch urdf_tutorial display.launch model:=urdf/03-robotmanip-test.urdf
+
+     - xyz in link itself: COG shifting
+     - xyz in joint: Relative translation between parent and child (Reference Frame for TF)
+     - rpy in link: rotation around itself but keeping same axis direction
+     - rpy in joint: rotaion around itself but changing axis of link
+     ********************************************************************
+ best method: 	  1- change COG of model --> xyz in LINK
+				  2- change relative location --> xyz in JOINT
+				  3- change axis orientation to give proper axial orientation according to link --> rpy in JOINT
+     ********************************************************************
+                                                    -->
