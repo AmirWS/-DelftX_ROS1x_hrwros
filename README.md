@@ -50,7 +50,7 @@ The primary purpose of this course is to provide a practical understanding of RO
 9. Robot 2 retrieves the box from TurtleBot3's holding location and places it in the release location.
 
 This course aims to provide hands-on experience in building, configuring, and controlling the robots and components involved in this industrial operation. It demonstrates the power and flexibility of ROS in orchestrating complex robotics tasks.
-## Course Introduction Video
+## Project Video
 
 [![Course Introduction](https://img.youtube.com/vi/n485FJn0iek/0.jpg)](https://www.youtube.com/watch?v=n485FJn0iek)
 
